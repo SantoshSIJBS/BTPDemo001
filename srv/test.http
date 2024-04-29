@@ -1,0 +1,74 @@
+http://localhost:4004/odata/v4/catalog/ManagerSet
+
+### Get all the records at a time
+http://localhost:4004/odata/v4/catalog/Books
+
+### Get all the records at a time
+http://localhost:4004/odata/v4/catalog/Books/452709c1-876b-408c-b0fa-1e432ba01123
+
+### Get all the services which are created
+http://localhost:4004/odata/v4/catalog
+
+### Get all the services which are created
+http://localhost:4004/odata/v4/catalog/$metadata
+
+### Employee Information
+http://localhost:4004/odata/v4/catalog/EmployeeSet?$top=2
+
+### Employee Information
+http://localhost:4004/odata/v4/catalog/EmployeeSet?$top=2&$skip=3
+
+### Filter on Department
+http://localhost:4004/odata/v4/catalog/EmployeeSet?$filter=department eq 'MM'
+
+###
+http://localhost:4004/odata/v4/catalog/EmployeeSet/$count
+
+###
+
+http://localhost:4004/odata/v4/catalog/EmployeeSet?$select=emp_id,emp_name
+
+### Insert employee data
+POST http://localhost:4004/odata/v4/catalog/EmployeeSet
+Content-Type: application/json
+
+{
+      "emp_id": "19006",
+      "emp_name": "Supraja Anumole",
+      "department": "FI",
+      "manager_mngr_id": "12502",
+      "salary": 55000
+}
+
+###
+http://localhost:4004/odata/v4/catalog/EmployeeSet/19006
+
+
+### Update employee salary
+PATCH http://localhost:4004/odata/v4/catalog/EmployeeSet/19005
+Content-Type: application/json
+
+{
+    "salary" : 10000001
+}
+
+### Delete the employee
+DELETE http://localhost:4004/odata/v4/catalog/EmployeeSet/19006
+
+###
+http://localhost:4004/odata/v4/catalog/ManagerSet
+
+### Update manager salary
+PATCH http://localhost:4004/odata/v4/catalog/ManagerSet/12503
+Content-Type: application/json
+
+{
+    "salary" : 135000
+}
+
+###
+DELETE http://localhost:4004/odata/v4/catalog/ManagerSet/12503
+
+
+###
+https://services.odata.org/V4/Northwind/Northwind.svc/Customers

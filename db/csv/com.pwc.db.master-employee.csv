@@ -1,0 +1,6 @@
+emp_id,emp_name,department,manager_mngr_id,salary
+19001,Saket Varma,MM,12501,50000
+19002,Rahul Bhatia,MM,12502,70000
+19003,Prakash Jain,FI,12501,60000
+19004,Haritha Narayan,MM,12503,40000
+19005,Santosh T,SD,12501,90000
