@@ -1,6 +1,6 @@
 namespace com.pwc.db;
 
-using { cuid } from '@sap/cds/common';
+using { cuid, Currency } from '@sap/cds/common';
 
 context master {
     // First table - cds
@@ -22,9 +22,24 @@ context master {
         department : String(32);
         salary : Int32;
     }
-
+    
     entity books : cuid{
         bookName: String(80);
         author: String(32);
+    }
+
+    context transaction {
+        entity purchseorder : cuid{
+            po_id : String(32);
+            status : String(1);
+            overall_status : String(1);
+            items: Composition of many item on items.parent_key = $self;
+        }
+        entity item: cuid {
+            parent_key : Association to purchseorder;
+            po_item : Integer;
+            amount : Int64;
+        }
+
     }
 }

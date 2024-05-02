@@ -22,7 +22,7 @@ http://localhost:4004/odata/v4/catalog/EmployeeSet?$top=2&$skip=3
 http://localhost:4004/odata/v4/catalog/EmployeeSet?$filter=department eq 'MM'
 
 ###
-http://localhost:4004/odata/v4/catalog/EmployeeSet/$count
+http://localhost:4004/odata/v4/catalog/EmployeeSet('19005')
 
 ###
 
@@ -39,13 +39,18 @@ Content-Type: application/json
       "manager_mngr_id": "12502",
       "salary": 55000
 }
-
 ###
-http://localhost:4004/odata/v4/catalog/EmployeeSet/19006
+POST http://localhost:4004/odata/v4/catalog/EmployeeSet('19005')/CatalogService.hike
+Content-Type: application/json
 
+{
+
+}
+###
+http://localhost:4004/odata/v4/catalog/EmployeeSet/19005
 
 ### Update employee salary
-PATCH http://localhost:4004/odata/v4/catalog/EmployeeSet/19005
+PATCH http://localhost:4004/odata/v4/catalog/EmployeeSet/19004
 Content-Type: application/json
 
 {
@@ -53,7 +58,7 @@ Content-Type: application/json
 }
 
 ### Delete the employee
-DELETE http://localhost:4004/odata/v4/catalog/EmployeeSet/19006
+DELETE http://localhost:4004/odata/v4/catalog/EmployeeSet/19005
 
 ###
 http://localhost:4004/odata/v4/catalog/ManagerSet
@@ -72,3 +77,6 @@ DELETE http://localhost:4004/odata/v4/catalog/ManagerSet/12503
 
 ###
 https://services.odata.org/V4/Northwind/Northwind.svc/Customers
+
+###
+GET http://localhost:4004/odata/v4/catalog/EmployeeSet('19005')/CatalogService.getHighestSalary()
